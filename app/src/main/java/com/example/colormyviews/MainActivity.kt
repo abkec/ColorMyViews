@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun makeColored(view: View) {
+
         when (view.id) {
 
             // Boxes using Color class colors for the background
@@ -23,6 +25,16 @@ class MainActivity : AppCompatActivity() {
             R.id.box_three_text -> view.setBackgroundColor(Color.BLUE)
             R.id.box_four_text -> view.setBackgroundColor(Color.MAGENTA)
             R.id.box_five_text -> view.setBackgroundColor(Color.BLUE)
+            // Boxes using custom colors for background
+            R.id.red_button -> box_three_text.setBackgroundResource(R.color.my_red)
+            R.id.yellow_button -> box_four_text.setBackgroundResource(R.color.my_yellow)
+            R.id.green_button -> box_five_text.setBackgroundResource(R.color.my_green)
+            //Additional boxes
+            R.id.box_one_pic -> view.setBackgroundResource(R.drawable.flower_one)
+            R.id.box_two_pic -> view.setBackgroundResource(R.drawable.flower_two)
+            R.id.box_three_pic -> view.setBackgroundResource(R.drawable.flower_three)
+            R.id.box_large -> view.setBackgroundColor(Color.CYAN)
+
             else -> view.setBackgroundColor(Color.LTGRAY)
         }
     }
@@ -35,10 +47,20 @@ class MainActivity : AppCompatActivity() {
         val boxFourText = findViewById<TextView>(R.id.box_four_text)
         val boxFiveText = findViewById<TextView>(R.id.box_five_text)
         val rootConstraintLayout = findViewById<View>(R.id.constraint_layout)
+        val redButton = findViewById<TextView>(R.id.red_button)
+        val greenButton = findViewById<TextView>(R.id.green_button)
+        val yellowButton = findViewById<TextView>(R.id.yellow_button)
+        val boxOnePic = findViewById<TextView>(R.id.box_one_pic)
+        val boxTwoPic = findViewById<TextView>(R.id.box_two_pic)
+        val boxThreePic = findViewById<TextView>(R.id.box_three_pic)
+        val boxLarge = findViewById<TextView>(R.id.box_large)
 
         val clickableViews: List<View> =
             listOf(boxOneText, boxTwoText, boxThreeText,
-                boxFourText, boxFiveText, rootConstraintLayout)
+                boxFourText, boxFiveText, rootConstraintLayout,
+                redButton, greenButton, yellowButton,
+                boxOnePic, boxTwoPic, boxThreePic, boxLarge
+            )
 
         for (item in clickableViews) {
             item.setOnClickListener { makeColored(it) }
