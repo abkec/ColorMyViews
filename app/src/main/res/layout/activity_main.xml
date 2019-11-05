@@ -11,7 +11,7 @@
         android:id="@+id/box_one_text"
         style="@style/whiteBox"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_marginLeft="@dimen/margin_wide"
         android:layout_marginTop="@dimen/margin_wide"
         android:layout_marginRight="@dimen/margin_wide"
